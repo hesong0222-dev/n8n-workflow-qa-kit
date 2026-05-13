@@ -12,6 +12,7 @@ This is a privacy-safe starter kit for cleaning up n8n workflows before they bec
 - `docs/qa-checklist.md`: a practical checklist for refactoring a messy workflow.
 - `docs/import-and-test.md`: exact import and manual test steps.
 - `docs/client-delivery-template.md`: a short handoff template for paid client work.
+- `docs/sample-async-qa-report.md`: a synthetic example of the paid async QA review deliverable.
 - `PRODUCT_LISTING.md`: checkout-page copy for Payhip, Gumroad, or Ko-fi.
 - `index.html`: a local sales page that can be adapted into a Payhip, Gumroad, Ko-fi, or static landing page.
 - `scripts/validate-package.js`: local validation for package shape and privacy leaks.
