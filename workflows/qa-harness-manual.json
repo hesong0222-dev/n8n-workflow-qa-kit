@@ -1,0 +1,86 @@
+{
+  "name": "QA Kit - Manual Workflow Harness",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "5e8c4b45-7df5-42a2-8b9e-caf094fc8b01",
+      "name": "When clicking Execute workflow",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  {\n    json: {\n      caseId: 'pass-basic-ticket',\n      requestId: 'req_demo_001',\n      taskType: 'summarize_ticket',\n      payload: {\n        ticketId: 'TICKET-123',\n        text: 'Synthetic customer note for QA testing.'\n      }\n    }\n  },\n  {\n    json: {\n      caseId: 'fail-missing-task-type',\n      requestId: 'req_demo_002',\n      payload: {\n        ticketId: 'TICKET-124',\n        text: 'Synthetic note with a missing taskType.'\n      }\n    }\n  }\n];"
+      },
+      "id": "78bd0c4b-0288-4132-8c70-a7ddf27e1c6e",
+      "name": "Seed synthetic QA cases",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [240, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map((item) => {\n  const value = item.json;\n  const missing = [];\n  for (const field of ['requestId', 'taskType', 'payload']) {\n    if (value[field] === undefined || value[field] === null || value[field] === '') {\n      missing.push(field);\n    }\n  }\n\n  const passed = missing.length === 0;\n  return {\n    json: {\n      caseId: value.caseId,\n      passed,\n      missing,\n      sanitizedInput: value,\n      recommendation: passed\n        ? 'Input contract looks valid. Continue to downstream workflow nodes.'\n        : `Reject or route to repair branch. Missing: ${missing.join(', ')}`\n    }\n  };\n});"
+      },
+      "id": "2db8ce9d-f1cb-4f16-bc3b-9a3fda6935e6",
+      "name": "Validate input contract",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [500, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "const passed = items.filter((item) => item.json.passed).length;\nconst failed = items.length - passed;\nreturn [\n  {\n    json: {\n      status: failed === 0 ? 'pass' : 'needs_attention',\n      totalCases: items.length,\n      passed,\n      failed,\n      cases: items.map((item) => item.json),\n      nextStep: failed === 0\n        ? 'Attach this validation block before the production workflow body.'\n        : 'Fix required fields or add a repair branch before expensive API or AI calls.'\n    }\n  }\n];"
+      },
+      "id": "27b5293e-006c-4516-a771-a530d2424fdd",
+      "name": "Build QA report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [760, 0]
+    }
+  ],
+  "connections": {
+    "When clicking Execute workflow": {
+      "main": [
+        [
+          {
+            "node": "Seed synthetic QA cases",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Seed synthetic QA cases": {
+      "main": [
+        [
+          {
+            "node": "Validate input contract",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate input contract": {
+      "main": [
+        [
+          {
+            "node": "Build QA report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true
+  },
+  "pinData": {},
+  "staticData": null,
+  "tags": []
+}
+

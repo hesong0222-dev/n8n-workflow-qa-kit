@@ -1,0 +1,66 @@
+{
+  "name": "QA Kit - Error Handler Starter",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "14ed6241-7803-4655-9fb0-c3ec1f348a0f",
+      "name": "On workflow error",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map((item) => {\n  const source = item.json;\n  const execution = source.execution ?? {};\n  const workflow = source.workflow ?? {};\n  const trigger = source.trigger ?? {};\n  const triggerError = trigger.error ?? {};\n  const error = execution.error ?? triggerError.cause ?? triggerError ?? {};\n\n  return {\n    json: {\n      incidentType: 'n8n_workflow_failure',\n      workflowId: workflow.id ?? 'unknown',\n      workflowName: workflow.name ?? 'unknown',\n      executionId: execution.id ?? null,\n      executionUrl: execution.url ?? null,\n      retryOf: execution.retryOf ?? null,\n      lastNodeExecuted: execution.lastNodeExecuted ?? null,\n      mode: execution.mode ?? trigger.mode ?? 'unknown',\n      errorName: error.name ?? triggerError.name ?? 'WorkflowError',\n      errorMessage: error.message ?? triggerError.message ?? 'No error message provided',\n      timestamp: new Date().toISOString(),\n      safeForClientHandoff: true\n    }\n  };\n});"
+      },
+      "id": "c665e040-646f-43d7-9d61-4c3ca41c16bb",
+      "name": "Normalize incident payload",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map((item) => ({\n  json: {\n    ...item.json,\n    routingHint: item.json.executionUrl\n      ? 'Open executionUrl and inspect the lastNodeExecuted.'\n      : 'The failure may have happened in the trigger before an execution record was created.',\n    nextAction: 'Replace this node with Slack, email, ticket creation, or database logging.'\n  }\n}));"
+      },
+      "id": "7721c11e-2a44-4b0a-917d-289d89e6f4df",
+      "name": "Prepare alert handoff",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [520, 0]
+    }
+  ],
+  "connections": {
+    "On workflow error": {
+      "main": [
+        [
+          {
+            "node": "Normalize incident payload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize incident payload": {
+      "main": [
+        [
+          {
+            "node": "Prepare alert handoff",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "none"
+  },
+  "pinData": {},
+  "staticData": null,
+  "tags": []
+}
+

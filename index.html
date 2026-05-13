@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>n8n Workflow QA + Refactor Kit</title>
+    <meta name="description" content="Importable n8n workflow starters and checklists for testing messy automations before production." />
+    <style>
+      :root {
+        --bg: #f7f8f4;
+        --ink: #171b1c;
+        --muted: #5b6464;
+        --panel: #ffffff;
+        --line: #d8ded8;
+        --accent: #0f766e;
+        --soft: #edf6f4;
+        --radius: 8px;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.55;
+      }
+      a { color: inherit; }
+      .shell { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+      header {
+        border-bottom: 1px solid var(--line);
+        background: rgba(247, 248, 244, 0.92);
+        backdrop-filter: blur(12px);
+        position: sticky;
+        top: 0;
+        z-index: 2;
+      }
+      .nav {
+        height: 68px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; }
+      .mark {
+        width: 34px;
+        height: 34px;
+        border-radius: 7px;
+        display: grid;
+        place-items: center;
+        color: white;
+        background: linear-gradient(135deg, var(--accent), #194b62);
+        font-weight: 800;
+        font-size: 14px;
+      }
+      .navlinks { display: flex; align-items: center; gap: 18px; color: var(--muted); font-size: 14px; }
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 0 18px;
+        border-radius: 7px;
+        border: 1px solid var(--ink);
+        background: var(--ink);
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .button.secondary { border-color: var(--line); background: white; color: var(--ink); }
+      main { padding-bottom: 72px; }
+      .hero {
+        padding: 76px 0 48px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr);
+        gap: 44px;
+        align-items: center;
+      }
+      h1 {
+        margin: 0;
+        font-size: clamp(42px, 7vw, 78px);
+        line-height: 0.94;
+        letter-spacing: 0;
+        max-width: 760px;
+      }
+      .lede { margin: 26px 0 0; color: var(--muted); font-size: 19px; max-width: 650px; }
+      .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+      .proof { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 36px; }
+      .proof div, .panel, .item { border: 1px solid var(--line); background: var(--panel); border-radius: var(--radius); }
+      .proof div { padding: 16px; }
+      .proof strong { display: block; font-size: 23px; line-height: 1; }
+      .proof span { display: block; margin-top: 7px; color: var(--muted); font-size: 13px; }
+      .product-shot {
+        border: 1px solid #cbd5d1;
+        background: #0c1314;
+        border-radius: 8px;
+        padding: 18px;
+        box-shadow: 0 28px 80px rgba(28, 36, 34, 0.18);
+      }
+      .window { border-radius: 7px; overflow: hidden; background: #101820; color: #dbeafe; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
+      .window-top { height: 34px; display: flex; align-items: center; gap: 7px; padding: 0 12px; background: #16222c; }
+      .dot { width: 10px; height: 10px; border-radius: 999px; background: #ef4444; }
+      .dot:nth-child(2) { background: #f59e0b; }
+      .dot:nth-child(3) { background: #10b981; }
+      .code { padding: 22px; min-height: 380px; font-size: 13px; line-height: 1.7; }
+      .code .k { color: #5eead4; }
+      .code .s { color: #fde68a; }
+      .code .m { color: #93c5fd; }
+      section { padding: 54px 0; }
+      .section-head { max-width: 740px; margin-bottom: 24px; }
+      h2 { margin: 0; font-size: clamp(30px, 4vw, 46px); line-height: 1.02; letter-spacing: 0; }
+      .section-head p { margin: 16px 0 0; color: var(--muted); font-size: 17px; }
+      .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .item { padding: 22px; }
+      .item h3 { margin: 0; font-size: 18px; }
+      .item p { margin: 10px 0 0; color: var(--muted); font-size: 15px; }
+      .split { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 18px; align-items: start; }
+      .panel { padding: 24px; }
+      .panel h3 { margin: 0 0 14px; }
+      .list { margin: 0; padding-left: 19px; color: var(--muted); }
+      .list li + li { margin-top: 9px; }
+      .price {
+        background: var(--soft);
+        border: 1px solid #b7d8d2;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 22px;
+        align-items: center;
+        border-radius: var(--radius);
+        padding: 26px;
+      }
+      .price strong { font-size: 42px; line-height: 1; }
+      .small { color: var(--muted); font-size: 14px; }
+      footer { border-top: 1px solid var(--line); padding: 28px 0 42px; color: var(--muted); font-size: 14px; }
+      @media (max-width: 860px) {
+        .hero, .split, .price { grid-template-columns: 1fr; }
+        .grid, .proof { grid-template-columns: 1fr; }
+        .navlinks { display: none; }
+        .hero { padding-top: 52px; }
+        .code { min-height: 280px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="shell nav">
+        <div class="brand"><div class="mark">QA</div><span>n8n Workflow QA Kit</span></div>
+        <nav class="navlinks" aria-label="Page sections">
+          <a href="#included">Included</a>
+          <a href="#workflow">Workflow</a>
+          <a href="#download">Download</a>
+          <a href="#price">Price</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="shell hero">
+        <div>
+          <h1>Test messy n8n workflows before they cost you a client.</h1>
+          <p class="lede">Importable workflow starters, a QA checklist, and a client handoff template for validating payloads, documenting errors, and cleaning up automation projects without exposing private data.</p>
+          <div class="hero-actions">
+            <a class="button" href="#download">Download sample</a>
+            <a class="button secondary" href="#included">See files</a>
+          </div>
+          <div class="proof" aria-label="Product facts">
+            <div><strong>3</strong><span>Importable workflow JSON files</span></div>
+            <div><strong>0</strong><span>Credentials or private data included</span></div>
+            <div><strong>15m</strong><span>Typical first QA pass setup</span></div>
+          </div>
+        </div>
+        <div class="product-shot" aria-label="Workflow package preview">
+          <div class="window">
+            <div class="window-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="code">
+              <span class="k">workflow</span>: QA Kit - Manual Harness<br />
+              <span class="k">trigger</span>: manual<br />
+              <span class="k">cases</span>: [ <span class="s">pass-basic-ticket</span>, <span class="s">fail-missing-task-type</span> ]<br />
+              <span class="k">validator</span>: required fields + synthetic payloads<br />
+              <span class="k">report</span>: {<br />
+              &nbsp;&nbsp;<span class="m">status</span>: <span class="s">needs_attention</span>,<br />
+              &nbsp;&nbsp;<span class="m">passed</span>: 1,<br />
+              &nbsp;&nbsp;<span class="m">failed</span>: 1,<br />
+              &nbsp;&nbsp;<span class="m">nextStep</span>: <span class="s">fix or add repair branch</span><br />
+              }<br /><br />
+              <span class="k">privacy</span>: synthetic examples only<br />
+              <span class="k">handoff</span>: checklist + client delivery notes
+            </div>
+          </div>
+        </div>
+      </div>
+      <section id="included">
+        <div class="shell">
+          <div class="section-head">
+            <h2>What is inside</h2>
+            <p>The kit is small on purpose. It gives you reusable starting points for the parts of workflow delivery that usually get skipped when a deadline is close.</p>
+          </div>
+          <div class="grid">
+            <article class="item"><h3>Manual QA harness</h3><p>Seeds synthetic passing and failing cases, validates required fields, and returns a compact report.</p></article>
+            <article class="item"><h3>Error handler starter</h3><p>Normalizes Error Trigger payloads into incident fields that can be sent to Slack, email, tickets, or a database.</p></article>
+            <article class="item"><h3>Async webhook skeleton</h3><p>Validates intake payloads and returns a job-style response before slow downstream processing begins.</p></article>
+          </div>
+        </div>
+      </section>
+      <section id="workflow">
+        <div class="shell split">
+          <div class="section-head">
+            <h2>Use it before production handoff</h2>
+            <p>Designed for freelancers and ops teams who need proof that a workflow was reviewed with synthetic data before real credentials or customer records are connected.</p>
+          </div>
+          <div class="panel">
+            <h3>Recommended flow</h3>
+            <ol class="list">
+              <li>Import the manual QA harness into n8n.</li>
+              <li>Replace the synthetic contract with your expected fields.</li>
+              <li>Run one passing case and one failing case.</li>
+              <li>Add an Error Trigger workflow for production failures.</li>
+              <li>Attach the client delivery template to the handoff.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+      <section id="download">
+        <div class="shell split">
+          <div class="section-head">
+            <h2>Try the sample workflow</h2>
+            <p>The public sample is the manual QA harness. It uses synthetic data only and is safe to inspect before asking for a paid workflow review.</p>
+          </div>
+          <div class="panel">
+            <h3>Public files</h3>
+            <ul class="list">
+              <li><a href="workflows/qa-harness-manual.json">Manual QA harness JSON</a></li>
+              <li><a href="docs/import-and-test.md">Import and test guide</a></li>
+              <li><a href="docs/qa-checklist.md">QA checklist</a></li>
+              <li><a href="n8n-workflow-qa-kit-20260514.zip">Full kit zip</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section id="price">
+        <div class="shell">
+          <div class="price">
+            <div>
+              <h2>Launch offer</h2>
+              <p class="small">Full kit: $29. Async review of one exported n8n workflow: $79. Send an exported workflow with credentials removed, screenshots, or a written brief; use synthetic/redacted data only.</p>
+            </div>
+            <div><strong>$29</strong><p class="small"><a href="mailto:lost.gust.712@birchlogicdusk.com?subject=n8n%20Workflow%20QA%20Kit%20or%20Review">Contact WorkflowPatch</a></p></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="shell">Built with synthetic examples only. No credentials, private logs, customer data, or real workflow secrets are included. Contact: <a href="mailto:lost.gust.712@birchlogicdusk.com">lost.gust.712@birchlogicdusk.com</a></div>
+    </footer>
+  </body>
+</html>

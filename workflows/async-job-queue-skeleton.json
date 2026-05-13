@@ -1,0 +1,72 @@
+{
+  "name": "QA Kit - Async Job Queue Skeleton",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "qa-kit-job-intake",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "7f8d65d1-cd61-4d2c-b6a1-64b887412f2f",
+      "name": "Webhook intake",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0],
+      "webhookId": "qa-kit-job-intake"
+    },
+    {
+      "parameters": {
+        "jsCode": "return items.map((item) => {\n  const body = item.json.body ?? item.json;\n  const missing = [];\n  for (const field of ['requestId', 'taskType', 'payload']) {\n    if (body[field] === undefined || body[field] === null || body[field] === '') {\n      missing.push(field);\n    }\n  }\n\n  if (missing.length > 0) {\n    return {\n      json: {\n        accepted: false,\n        status: 'rejected',\n        missing,\n        message: `Missing required fields: ${missing.join(', ')}`\n      }\n    };\n  }\n\n  return {\n    json: {\n      accepted: true,\n      status: 'queued',\n      jobId: `job_${Date.now()}_${String(body.requestId).replace(/[^a-zA-Z0-9_-]/g, '_')}`,\n      requestId: body.requestId,\n      taskType: body.taskType,\n      payloadPreview: body.payload,\n      next: 'Persist this job to Airtable, Postgres, Google Sheets, or your queue table before doing slow work.'\n    }\n  };\n});"
+      },
+      "id": "3dcfd04e-adf6-4618-9a7d-f80e24ca3f1a",
+      "name": "Validate and create synthetic job",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [280, 0]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}"
+      },
+      "id": "c63d0ec7-202b-4c7c-a312-6c5189d73c0f",
+      "name": "Respond with job status",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [560, 0]
+    }
+  ],
+  "connections": {
+    "Webhook intake": {
+      "main": [
+        [
+          {
+            "node": "Validate and create synthetic job",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate and create synthetic job": {
+      "main": [
+        [
+          {
+            "node": "Respond with job status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true
+  },
+  "pinData": {},
+  "staticData": null,
+  "tags": []
+}
+
