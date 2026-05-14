@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WorkflowPatch Agency Overflow QA</title>
+    <meta name="description" content="$75 white-label QA packet for one n8n, Make, Zapier, API, or AI automation workflow before client handoff." />
+    <style>
+      :root {
+        --bg: #f6f8f5;
+        --ink: #151918;
+        --muted: #5f6865;
+        --panel: #ffffff;
+        --line: #d6ddd7;
+        --accent: #0f766e;
+        --soft: #eaf5f1;
+        --radius: 8px;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.55;
+      }
+      a { color: inherit; }
+      .shell { width: min(1080px, calc(100% - 40px)); margin: 0 auto; }
+      header { border-bottom: 1px solid var(--line); background: rgba(246, 248, 245, 0.94); position: sticky; top: 0; z-index: 2; backdrop-filter: blur(12px); }
+      .nav { min-height: 66px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+      .brand { display: flex; align-items: center; gap: 11px; font-weight: 800; }
+      .mark { width: 34px; height: 34px; border-radius: 7px; display: grid; place-items: center; color: #fff; background: linear-gradient(135deg, var(--accent), #183f52); font-size: 13px; }
+      .nav a { color: var(--muted); text-decoration: none; font-size: 14px; }
+      main { padding-bottom: 66px; }
+      .hero { padding: 72px 0 42px; display: grid; grid-template-columns: minmax(0, 1.04fr) minmax(340px, 0.96fr); gap: 42px; align-items: center; }
+      .eyebrow { color: var(--accent); font-size: 13px; font-weight: 800; letter-spacing: 0; text-transform: uppercase; }
+      h1 { margin: 12px 0 0; font-size: clamp(42px, 6.8vw, 76px); line-height: 0.95; letter-spacing: 0; }
+      .lede { margin: 24px 0 0; color: var(--muted); font-size: 19px; max-width: 650px; }
+      .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+      .button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 18px; border-radius: 7px; border: 1px solid var(--ink); background: var(--ink); color: #fff; text-decoration: none; font-size: 14px; font-weight: 800; }
+      .button.secondary { border-color: var(--line); background: #fff; color: var(--ink); }
+      .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 34px; }
+      .fact, .panel, .step { border: 1px solid var(--line); background: var(--panel); border-radius: var(--radius); }
+      .fact { padding: 16px; }
+      .fact strong { display: block; font-size: 27px; line-height: 1; }
+      .fact span { display: block; margin-top: 7px; color: var(--muted); font-size: 13px; }
+      .packet { border: 1px solid #cbd8d0; background: #0f1718; border-radius: var(--radius); color: #d9f6f2; box-shadow: 0 26px 80px rgba(24, 35, 32, 0.18); overflow: hidden; }
+      .packet-top { height: 38px; display: flex; align-items: center; gap: 7px; padding: 0 14px; background: #172425; }
+      .dot { width: 10px; height: 10px; border-radius: 999px; background: #ef4444; }
+      .dot:nth-child(2) { background: #f59e0b; }
+      .dot:nth-child(3) { background: #10b981; }
+      .packet-body { padding: 24px; min-height: 390px; font: 13px/1.72 "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
+      .k { color: #5eead4; }
+      .v { color: #fde68a; }
+      section { padding: 48px 0; }
+      .head { max-width: 760px; margin-bottom: 22px; }
+      h2 { margin: 0; font-size: clamp(30px, 4vw, 46px); line-height: 1.04; letter-spacing: 0; }
+      .head p { margin: 14px 0 0; color: var(--muted); font-size: 17px; }
+      .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .step, .panel { padding: 22px; }
+      .step h3, .panel h3 { margin: 0 0 10px; font-size: 18px; }
+      .step p, .panel p, li { color: var(--muted); }
+      .split { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 18px; align-items: start; }
+      ul { margin: 0; padding-left: 20px; }
+      li + li { margin-top: 9px; }
+      .price { border: 1px solid #b8d8d0; background: var(--soft); border-radius: var(--radius); padding: 24px; display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; }
+      .price strong { font-size: 42px; line-height: 1; }
+      .small { color: var(--muted); font-size: 14px; }
+      footer { border-top: 1px solid var(--line); padding: 26px 0 40px; color: var(--muted); font-size: 14px; }
+      @media (max-width: 860px) {
+        .hero, .split, .price { grid-template-columns: 1fr; }
+        .grid, .facts { grid-template-columns: 1fr; }
+        .nav a { display: none; }
+        .hero { padding-top: 50px; }
+        .packet-body { min-height: 300px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="shell nav">
+        <div class="brand"><div class="mark">QA</div><span>WorkflowPatch</span></div>
+        <a href="index.html">View full playbook</a>
+      </div>
+    </header>
+    <main>
+      <div class="shell hero">
+        <div>
+          <div class="eyebrow">Agency overflow QA</div>
+          <h1>Ship the client workflow with a second reliability pass.</h1>
+          <p class="lede">$75 fixed, 24h async QA packet for one n8n, Make, Zapier, API, SMS, email, or AI automation workflow before client handoff.</p>
+          <div class="actions">
+            <a class="button" href="mailto:lost.gust.712@birchlogicdusk.com?subject=Start%20a%20%2475%20agency%20overflow%20QA%20packet&body=Hi%20WorkflowPatch%2C%0A%0AI%20want%20the%20%2475%20agency%20overflow%20QA%20packet.%0A%0ATool%20stack%3A%0AWorkflow%20goal%3A%0ABiggest%20handoff%20risk%3A%0ADesired%20turnaround%3A%0A%0AI%20will%20send%20only%20redacted%2Fsynthetic%20details.%0A%0AThanks.">Start the $75 packet</a>
+            <a class="button secondary" href="docs/sample-async-qa-report.md">See sample report</a>
+          </div>
+          <div class="facts" aria-label="Offer facts">
+            <div class="fact"><strong>$75</strong><span>Fixed first workflow packet</span></div>
+            <div class="fact"><strong>24h</strong><span>Async written turnaround</span></div>
+            <div class="fact"><strong>0</strong><span>Credentials or private records needed</span></div>
+          </div>
+        </div>
+        <aside class="packet" aria-label="Packet preview">
+          <div class="packet-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="packet-body">
+            <span class="k">input</span>: redacted workflow brief<br />
+            <span class="k">scope</span>: one client workflow<br />
+            <span class="k">review</span>: trigger -> branch -> error path<br />
+            <span class="k">checks</span>: [<span class="v">duplicates</span>, <span class="v">retries</span>, <span class="v">missing fields</span>]<br />
+            <span class="k">deliverables</span>: {<br />
+            &nbsp;&nbsp;architectureMap: <span class="v">included</span>,<br />
+            &nbsp;&nbsp;syntheticCases: <span class="v">included</span>,<br />
+            &nbsp;&nbsp;handoffChecklist: <span class="v">included</span>,<br />
+            &nbsp;&nbsp;productionAccess: <span class="v">not requested</span><br />
+            }<br /><br />
+            <span class="k">output</span>: client-readable QA packet
+          </div>
+        </aside>
+      </div>
+      <section>
+        <div class="shell">
+          <div class="head">
+            <h2>What your agency gets</h2>
+            <p>A narrow reliability artifact you can hand to your client or use internally before enabling live credentials.</p>
+          </div>
+          <div class="grid">
+            <article class="step"><h3>Architecture map</h3><p>Inputs, systems, owners, approval gates, and handoff boundaries in one written view.</p></article>
+            <article class="step"><h3>Failure-path review</h3><p>Where payloads, stale state, retries, duplicate sends, or missing fields can break delivery.</p></article>
+            <article class="step"><h3>Synthetic test cases</h3><p>Happy path, broken input, duplicate event, timeout, and human-review cases without customer data.</p></article>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="shell split">
+          <div class="head">
+            <h2>Designed for near-handoff work</h2>
+            <p>This is not a full implementation sprint. It is the small proof layer that makes a full build safer to scope, sell, or hand over.</p>
+          </div>
+          <div class="panel">
+            <h3>Good fit</h3>
+            <ul>
+              <li>n8n, Make, Zapier, webhook, CRM, email, SMS, WhatsApp, or AI-agent workflows.</li>
+              <li>Client delivery is close, but error handling and duplicate prevention are thin.</li>
+              <li>You need written QA notes without sharing credentials or private records.</li>
+              <li>You want a white-label artifact your team can adapt.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="shell split">
+          <div class="panel">
+            <h3>Not requested</h3>
+            <ul>
+              <li>Production API keys or OAuth credentials.</li>
+              <li>Private customer records, phone numbers, PHI, payment exports, or live database access.</li>
+              <li>Unredacted logs or customer conversations.</li>
+              <li>Forum, marketplace, or client account access.</li>
+            </ul>
+          </div>
+          <div class="price">
+            <div>
+              <h2>One workflow. One packet. One day.</h2>
+              <p class="small">Send a redacted brief, screenshots, or credential-stripped export. I confirm fit before payment and return the written QA packet within 24h after acceptance.</p>
+            </div>
+            <div>
+              <strong>$75</strong>
+              <p class="small">fixed first packet</p>
+              <a class="button" href="mailto:lost.gust.712@birchlogicdusk.com?subject=Start%20a%20%2475%20agency%20overflow%20QA%20packet&body=Hi%20WorkflowPatch%2C%0A%0AI%20want%20the%20%2475%20agency%20overflow%20QA%20packet.%0A%0ATool%20stack%3A%0AWorkflow%20goal%3A%0ABiggest%20handoff%20risk%3A%0ADesired%20turnaround%3A%0A%0AI%20will%20send%20only%20redacted%2Fsynthetic%20details.%0A%0AThanks.">Start</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="shell">WorkflowPatch · Privacy-safe automation QA · <a href="docs/sample-async-qa-report.md">Sample report</a> · <a href="index.html">Full playbook</a></div>
+    </footer>
+  </body>
+</html>

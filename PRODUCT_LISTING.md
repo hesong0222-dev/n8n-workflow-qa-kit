@@ -8,6 +8,8 @@ The n8n Client Delivery Playbook
 
 A 60-minute QA handoff system plus $75 proof-slice service for n8n freelancers and automation agencies shipping client workflows.
 
+Agency overflow page: `agency-overflow.html`
+
 ## Long Description
 
 Most broken n8n workflows do not fail because the idea is wrong. They fail because payloads drift, errors get swallowed, branches stop producing expected output, or exported workflows accidentally leak credential names and private headers.
@@ -50,6 +52,7 @@ Use it before shipping a workflow, before handing work to a client, or before se
 
 - `$49`: Playbook bundle
 - `$75`: Paid proof slice for one Make/n8n/Zapier workflow problem, delivered as a redacted architecture map, failure-path review, idempotency notes, synthetic test cases, and handoff checklist
+- `$75`: Agency overflow QA packet for one near-handoff client workflow, positioned for automation agencies that need a 24h white-label reliability pass
 - `$79`: Playbook bundle plus one async workflow review, delivered as written notes
 - `$149`: Urgent 24-hour QA packet for one workflow brief
 
