@@ -33,7 +33,7 @@ The workflows use synthetic examples only. There are no credentials, customer na
 
 Use three tiers:
 
-- `₹4,999`: Public n8n Basket listing for the importable QA harness JSON: https://n8nbasket.com/workflow/4af3e281-63fb-492b-b58e-4758f981a751
+- `₹4,999`: Public n8n Basket listing for the importable QA harness JSON: https://n8nbasket.com/r/@WorkflowPatch/n8n-workflow-qa-kit-client-delivery-harness
 - `$49`: Playbook bundle, including ebook, workflow starters, checklist, and templates.
 - `$79`: Async review of one exported n8n workflow or written automation brief, delivered as written notes.
 - `$149`: Urgent 24-hour QA packet for one workflow brief, using redacted or synthetic data only.
