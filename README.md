@@ -8,8 +8,8 @@ The bundle combines a short practical ebook with importable workflow starters, Q
 
 ## What Is Included
 
-- `docs/ebook/n8n-client-delivery-playbook.md`: the ebook/playbook for creating a client-ready QA packet.
-- `docs/ebook/n8n-client-delivery-playbook.html`: browser-readable ebook version for buyers.
+- `docs/ebook/n8n-client-delivery-playbook.md`: a public sample from the ebook/playbook.
+- `docs/ebook/n8n-client-delivery-playbook.html`: browser-readable public sample.
 - `workflows/qa-harness-manual.json`: an importable manual QA harness that seeds synthetic cases, validates required fields, and returns a structured pass/fail report.
 - `workflows/error-handler-starter.json`: an importable Error Trigger starter workflow that normalizes production workflow failures into a compact incident payload.
 - `workflows/async-job-queue-skeleton.json`: an importable webhook skeleton for production-style async jobs with request validation, synthetic job IDs, and webhook responses.
@@ -20,6 +20,8 @@ The bundle combines a short practical ebook with importable workflow starters, Q
 - `PRODUCT_LISTING.md`: checkout-page copy for Payhip, Gumroad, or Ko-fi.
 - `index.html`: a local sales page that can be adapted into a Payhip, Gumroad, Ko-fi, or static landing page.
 - `scripts/validate-package.js`: local validation for package shape and privacy leaks.
+
+The complete buyer bundle is delivered after payment or written acceptance. Do not publish the private buyer zip in this public repository.
 
 ## Privacy Boundary
 

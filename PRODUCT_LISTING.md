@@ -25,7 +25,7 @@ Use it before shipping a workflow, before handing work to a client, or before se
 
 ## What Buyers Get
 
-- Ebook/playbook in Markdown and HTML
+- Complete ebook/playbook in Markdown and HTML
 - 3 importable n8n workflow JSON files
 - QA/refactor checklist
 - Import and test guide
@@ -54,9 +54,9 @@ Use it before shipping a workflow, before handing work to a client, or before se
 
 ## Delivery File
 
-Upload a zip named:
+Deliver privately after payment or written acceptance:
 
-`n8n-client-delivery-playbook-20260514.zip`
+`n8n-client-delivery-playbook-20260514-private-buyer-bundle.zip`
 
 ## Refund Policy Draft
 

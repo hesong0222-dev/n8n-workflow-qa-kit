@@ -3,10 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>The n8n Client Delivery Playbook</title>
+    <title>The n8n Client Delivery Playbook - Sample</title>
     <style>
       :root {
-        color-scheme: light;
         --paper: #fbfaf6;
         --ink: #1d2626;
         --muted: #5b6866;
@@ -36,7 +35,7 @@
         font-size: clamp(40px, 8vw, 72px);
       }
       h2 {
-        margin: 44px 0 12px;
+        margin: 38px 0 12px;
         font-size: 28px;
       }
       p,
@@ -53,11 +52,12 @@
       .lead {
         color: var(--muted);
         font-size: 22px;
-        margin-bottom: 32px;
       }
-      code,
-      pre {
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      .box {
+        border-top: 2px solid var(--accent);
+        border-bottom: 1px solid var(--line);
+        margin: 32px 0;
+        padding: 18px 0;
       }
       pre {
         overflow-x: auto;
@@ -65,14 +65,7 @@
         border: 1px solid var(--line);
         border-radius: 8px;
         padding: 18px;
-        font-size: 14px;
-        line-height: 1.45;
-      }
-      .box {
-        border-top: 2px solid var(--accent);
-        border-bottom: 1px solid var(--line);
-        margin: 32px 0;
-        padding: 18px 0;
+        font: 14px/1.45 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
       }
       a {
         color: var(--accent);
@@ -81,21 +74,21 @@
   </head>
   <body>
     <main>
-      <p class="meta">WorkflowPatch / Version 2026-05-14</p>
+      <p class="meta">WorkflowPatch / Public sample / Version 2026-05-14</p>
       <h1>The n8n Client Delivery Playbook</h1>
       <p class="lead">A 60-minute QA handoff system for n8n freelancers and automation agencies shipping client workflows.</p>
 
       <section class="box">
-        <p>This playbook helps you turn a messy automation into a client-ready QA packet: one workflow contract, one passing synthetic test, one failing synthetic test, one duplicate test, one retry/idempotency note, and one client-readable handoff note.</p>
+        <p>This is a public sample from the paid playbook. The complete buyer bundle includes the full ebook, HTML version, importable n8n workflow JSON files, QA checklist, import guide, client delivery template, and sample async QA report.</p>
       </section>
 
       <h2>Who This Is For</h2>
       <p>Freelancers, automation agencies, and internal operators who build n8n, Make, Zapier, or Airtable automations for real clients and need a clean way to prove readiness before credentials, customer records, or production data are connected.</p>
 
-      <h2>The Delivery Problem</h2>
-      <p>Most automation projects do not fail because the happy path is impossible. They fail because the builder launches with no answer to missing fields, duplicate webhooks, partial API failures, retry ownership, or client-facing recovery steps.</p>
+      <h2>The Promise</h2>
+      <p>In 60 minutes, the full playbook helps you turn a messy automation into a client-ready QA packet: one workflow contract, one passing synthetic test, one failing synthetic test, one retry/idempotency note, one handoff checklist, and one clear client-facing delivery note.</p>
 
-      <h2>The Workflow Contract</h2>
+      <h2>Sample: The Workflow Contract</h2>
       <pre>Workflow name:
 Business outcome:
 Trigger:
@@ -109,8 +102,7 @@ Duplicate prevention rule:
 Retry rule:
 Owner when it breaks:</pre>
 
-      <h2>Synthetic Test Payloads</h2>
-      <p>Use fake data before real data. A useful payload set has a passing case, a missing-field case, and a duplicate-event case.</p>
+      <h2>Sample: Synthetic Test Payload</h2>
       <pre>{
   "case": "pass_basic",
   "payload": {
@@ -121,75 +113,7 @@ Owner when it breaks:</pre>
   }
 }</pre>
 
-      <h2>The 15-Minute QA Pass</h2>
-      <ol>
-        <li>Import the workflow into a clean test workspace.</li>
-        <li>Disable all real credentials.</li>
-        <li>Replace live webhooks with manual trigger or test webhook.</li>
-        <li>Run the passing synthetic case.</li>
-        <li>Run the missing-field case.</li>
-        <li>Run a duplicate case.</li>
-        <li>Record the output for each case.</li>
-        <li>Confirm that failures produce a usable message.</li>
-        <li>Confirm that the client knows who owns a failure.</li>
-        <li>Attach the results to the handoff note.</li>
-      </ol>
-
-      <h2>Idempotency In Plain English</h2>
-      <p>If the same order, lead, ticket, or form submission reaches the workflow twice, the workflow should recognize the duplicate and avoid sending duplicate emails, creating duplicate records, or charging twice.</p>
-
-      <h2>Error Handling That Clients Understand</h2>
-      <pre>What failed:
-What data was involved:
-What the workflow already tried:
-What is safe to retry:
-What needs human review:
-Who owns the next action:</pre>
-
-      <h2>The Client Handoff Note</h2>
-      <pre>I reviewed the workflow with synthetic data before production handoff.
-
-Passing case:
-- Input:
-- Expected output:
-- Actual output:
-
-Failure case:
-- Input:
-- Expected failure:
-- Actual failure:
-
-Duplicate case:
-- Duplicate key:
-- Expected behavior:
-- Actual behavior:
-
-Known limits:
--
-
-Client action before launch:
-- Connect production credentials.
-- Confirm owner for failures.
-- Confirm retry policy.
-- Run one production dry run with a non-sensitive record.</pre>
-
-      <h2>When To Sell A Review</h2>
-      <p>If a client already has a messy workflow, sell a review before a rebuild: risk map, missing-field checks, duplicate/idempotency notes, failure-state checklist, synthetic test payloads, and a client handoff note.</p>
-
-      <h2>One-Page Checklist</h2>
-      <ul>
-        <li>Workflow contract exists.</li>
-        <li>Required fields are explicit.</li>
-        <li>Passing synthetic test exists.</li>
-        <li>Failing synthetic test exists.</li>
-        <li>Duplicate test exists.</li>
-        <li>Credential-free review path exists.</li>
-        <li>Error owner is named.</li>
-        <li>Retry rule is written.</li>
-        <li>Handoff note is client-readable.</li>
-        <li>Known limits are stated.</li>
-      </ul>
-
+      <p>The paid bundle adds the full QA pass, duplicate test, idempotency note, error-handling format, client handoff note, checklist, and importable n8n workflow files.</p>
       <p><a href="../../index.html">Back to product page</a></p>
     </main>
   </body>

@@ -8,7 +8,6 @@ const requiredFiles = [
   "README.md",
   "PRODUCT_LISTING.md",
   "index.html",
-  "n8n-client-delivery-playbook-20260514.zip",
   "docs/ebook/n8n-client-delivery-playbook.md",
   "docs/ebook/n8n-client-delivery-playbook.html",
   "docs/qa-checklist.md",
