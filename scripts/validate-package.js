@@ -3,12 +3,14 @@ const path = require("node:path");
 
 const root = path.resolve(__dirname, "..");
 const workflowDir = path.join(root, "workflows");
-const docsDir = path.join(root, "docs");
 
 const requiredFiles = [
   "README.md",
   "PRODUCT_LISTING.md",
   "index.html",
+  "n8n-client-delivery-playbook-20260514.zip",
+  "docs/ebook/n8n-client-delivery-playbook.md",
+  "docs/ebook/n8n-client-delivery-playbook.html",
   "docs/qa-checklist.md",
   "docs/import-and-test.md",
   "docs/client-delivery-template.md",
@@ -28,6 +30,14 @@ const secretPatterns = [
 function fail(message) {
   console.error(`FAIL: ${message}`);
   process.exitCode = 1;
+}
+
+function walkFiles(dir) {
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  return entries.flatMap((entry) => {
+    const fullPath = path.join(dir, entry.name);
+    return entry.isDirectory() ? walkFiles(fullPath) : [fullPath];
+  });
 }
 
 for (const file of requiredFiles) {
@@ -66,13 +76,15 @@ for (const file of fs.readdirSync(workflowDir).filter((name) => name.endsWith(".
   }
 }
 
-for (const dir of [root, docsDir]) {
-  for (const file of fs.readdirSync(dir).filter((name) => name.endsWith(".md"))) {
-    const raw = fs.readFileSync(path.join(dir, file), "utf8");
-    for (const pattern of secretPatterns) {
-      if (pattern.test(raw)) {
-        fail(`${file} matches secret-like pattern ${pattern}`);
-      }
+for (const file of walkFiles(root).filter((name) => /\.(md|html|json|js)$/i.test(name))) {
+  if (file.includes(`${path.sep}.git${path.sep}`)) {
+    continue;
+  }
+  const raw = fs.readFileSync(file, "utf8");
+  const relative = path.relative(root, file);
+  for (const pattern of secretPatterns) {
+    if (pattern.test(raw)) {
+      fail(`${relative} matches secret-like pattern ${pattern}`);
     }
   }
 }

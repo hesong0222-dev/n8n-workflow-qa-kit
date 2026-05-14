@@ -2,28 +2,30 @@
 
 ## Title
 
-n8n Workflow QA + Refactor Kit
+The n8n Client Delivery Playbook
 
 ## Short Description
 
-Importable n8n workflow starters and checklists for testing messy automations before they hit production.
+A 60-minute QA handoff system for n8n freelancers and automation agencies shipping client workflows.
 
 ## Long Description
 
 Most broken n8n workflows do not fail because the idea is wrong. They fail because payloads drift, errors get swallowed, branches stop producing expected output, or exported workflows accidentally leak credential names and private headers.
 
-This kit gives you a small, practical QA layer:
+This bundle gives you a small, practical delivery system:
 
+- A short ebook for turning a messy workflow into a client-ready QA packet
 - A manual QA harness with synthetic test cases
 - An Error Trigger starter for production failures
 - A webhook/async job skeleton for safer long-running automations
 - A refactor checklist for reviewing client workflows
 - A client handoff template for paid implementation work
 
-Use it before shipping a workflow, before handing work to a client, or before asking someone else to debug an automation.
+Use it before shipping a workflow, before handing work to a client, or before selling a paid workflow review.
 
 ## What Buyers Get
 
+- Ebook/playbook in Markdown and HTML
 - 3 importable n8n workflow JSON files
 - QA/refactor checklist
 - Import and test guide
@@ -46,16 +48,16 @@ Use it before shipping a workflow, before handing work to a client, or before as
 
 ## Price Tiers
 
-- `$29`: Kit only
-- `$79`: Kit plus one async workflow review, delivered as written notes
+- `$49`: Playbook bundle
+- `$79`: Playbook bundle plus one async workflow review, delivered as written notes
+- `$149`: Urgent 24-hour QA packet for one workflow brief
 
 ## Delivery File
 
 Upload a zip named:
 
-`n8n-workflow-qa-kit-20260514.zip`
+`n8n-client-delivery-playbook-20260514.zip`
 
 ## Refund Policy Draft
 
 Refunds are available for 7 days if the workflow JSON files cannot be imported into a current n8n instance and the buyer shares the import error. Refunds do not cover custom implementation work already delivered.
-

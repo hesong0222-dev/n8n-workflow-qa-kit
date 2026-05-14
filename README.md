@@ -1,11 +1,15 @@
-# n8n Workflow QA + Refactor Kit
+# The n8n Client Delivery Playbook
 
 Date: 2026-05-14
 
-This is a privacy-safe starter kit for cleaning up n8n workflows before they become production automations. It is built for freelancers, internal ops teams, and founders who need a repeatable way to test payload shape, catch malformed inputs, and document error behavior without uploading private customer data.
+This is a privacy-safe delivery system for freelancers, automation agencies, and internal operators who need to hand over n8n workflows with proof instead of hope.
+
+The bundle combines a short practical ebook with importable workflow starters, QA checklists, and client handoff templates. The goal is simple: turn one messy automation into a client-ready QA packet in about 60 minutes without exposing credentials, customer data, private endpoints, or production logs.
 
 ## What Is Included
 
+- `docs/ebook/n8n-client-delivery-playbook.md`: the ebook/playbook for creating a client-ready QA packet.
+- `docs/ebook/n8n-client-delivery-playbook.html`: browser-readable ebook version for buyers.
 - `workflows/qa-harness-manual.json`: an importable manual QA harness that seeds synthetic cases, validates required fields, and returns a structured pass/fail report.
 - `workflows/error-handler-starter.json`: an importable Error Trigger starter workflow that normalizes production workflow failures into a compact incident payload.
 - `workflows/async-job-queue-skeleton.json`: an importable webhook skeleton for production-style async jobs with request validation, synthetic job IDs, and webhook responses.
@@ -23,7 +27,11 @@ The workflows use synthetic examples only. There are no credentials, customer na
 
 ## Suggested Price
 
-Start at `$29` for the kit. Offer a `$79` tier that includes one async workflow review or a 30-minute implementation call.
+Use three tiers:
+
+- `$49`: Playbook bundle, including ebook, workflow starters, checklist, and templates.
+- `$79`: Async review of one exported n8n workflow or written automation brief, delivered as written notes.
+- `$149`: Urgent 24-hour QA packet for one workflow brief, using redacted or synthetic data only.
 
 ## Sources Checked
 
