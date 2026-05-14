@@ -49,6 +49,7 @@ Use it before shipping a workflow, before handing work to a client, or before se
 ## Price Tiers
 
 - `$49`: Playbook bundle
+- `$75`: Paid proof slice for one Make/n8n/Zapier workflow problem, delivered as a redacted architecture and QA packet
 - `$79`: Playbook bundle plus one async workflow review, delivered as written notes
 - `$149`: Urgent 24-hour QA packet for one workflow brief
 

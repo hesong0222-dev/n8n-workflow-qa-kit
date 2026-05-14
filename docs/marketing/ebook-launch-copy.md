@@ -28,6 +28,7 @@ Offer ladder:
 
 - Free sample: manual QA harness JSON.
 - $49: Playbook + full kit bundle.
+- $75: paid proof slice for one Make/n8n/Zapier workflow problem before credentials are shared.
 - $79: async review of one exported n8n workflow with credentials removed.
 - $149: urgent 24-hour delivery QA packet for one workflow brief.
 
@@ -119,5 +120,4 @@ Use capacity, not fake urgency:
 
 ## Conversion Goal
 
-The first goal is not a $29 ebook sale. The first goal is a $79 workflow review request because it clears the $50 target with one buyer.
-
+The first goal is not a low-ticket ebook sale. The first goal is a $75 proof-slice request because it clears the $50 target with one buyer and is easier to accept than a full implementation proposal.
