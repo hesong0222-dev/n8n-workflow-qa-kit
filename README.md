@@ -18,6 +18,7 @@ The bundle combines a short practical ebook with importable workflow starters, Q
 - `docs/client-delivery-template.md`: a short handoff template for paid client work.
 - `docs/sample-async-qa-report.md`: a synthetic example of the paid async QA review deliverable.
 - `docs/html-seo-batch-qa-sample.md`: a public sample for paid HTML/SEO batch review projects.
+- `docs/voice-agent-event-qa-sample.md`: a public sample for paid Vapi/Twilio/n8n voice-agent review projects.
 - `PRODUCT_LISTING.md`: checkout-page copy for Payhip, Gumroad, or Ko-fi.
 - `index.html`: a local sales page that can be adapted into a Payhip, Gumroad, Ko-fi, or static landing page.
 - `scripts/validate-package.js`: local validation for package shape and privacy leaks.
