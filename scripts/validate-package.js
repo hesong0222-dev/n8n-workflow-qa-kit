@@ -13,6 +13,7 @@ const requiredFiles = [
   "docs/qa-checklist.md",
   "docs/import-and-test.md",
   "docs/client-delivery-template.md",
+  "docs/html-seo-batch-qa-sample.md",
   "workflows/qa-harness-manual.json",
   "workflows/error-handler-starter.json",
   "workflows/async-job-queue-skeleton.json",
