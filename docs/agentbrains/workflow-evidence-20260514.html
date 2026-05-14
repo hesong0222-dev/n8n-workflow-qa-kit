@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AgentBrains n8n Workflow Evidence - Workflow QA Assistant</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #5f6b7a;
+      --line: #cbd5e1;
+      --n8n: #ff6d5a;
+      --agent: #2563eb;
+      --ok: #16a34a;
+      --bg: #f8fafc;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .page {
+      width: 1280px;
+      height: 800px;
+      padding: 44px;
+      background:
+        linear-gradient(90deg, rgba(203,213,225,.44) 1px, transparent 1px),
+        linear-gradient(rgba(203,213,225,.44) 1px, transparent 1px),
+        #f8fafc;
+      background-size: 32px 32px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 32px;
+      margin-bottom: 34px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 32px;
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+    .subtitle {
+      margin: 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.45;
+    }
+    .badge {
+      border: 1px solid #bfdbfe;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 14px;
+      line-height: 1.35;
+      min-width: 300px;
+    }
+    .canvas {
+      position: relative;
+      height: 410px;
+      border: 1px solid #d7dee9;
+      background: rgba(255,255,255,.82);
+      border-radius: 8px;
+      box-shadow: 0 18px 50px rgba(15, 23, 42, .08);
+      overflow: hidden;
+    }
+    .node {
+      position: absolute;
+      width: 210px;
+      min-height: 112px;
+      border-radius: 8px;
+      border: 1px solid #d9e2ef;
+      background: #fff;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, .09);
+      padding: 18px 18px 14px;
+    }
+    .node .icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 7px;
+      color: #fff;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+    .node h2 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+    .node p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+    .manual { left: 52px; top: 132px; }
+    .seed { left: 328px; top: 132px; }
+    .validate { left: 604px; top: 132px; }
+    .report { left: 880px; top: 132px; }
+    .agent { left: 880px; top: 270px; border-color: #bfdbfe; background: #f8fbff; }
+    .manual .icon, .seed .icon, .validate .icon, .report .icon { background: var(--n8n); }
+    .agent .icon { background: var(--agent); }
+    .arrow {
+      position: absolute;
+      top: 184px;
+      height: 2px;
+      background: #94a3b8;
+    }
+    .arrow::after {
+      content: "";
+      position: absolute;
+      right: -1px;
+      top: -5px;
+      width: 0;
+      height: 0;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-left: 9px solid #94a3b8;
+    }
+    .a1 { left: 262px; width: 56px; }
+    .a2 { left: 538px; width: 56px; }
+    .a3 { left: 814px; width: 56px; }
+    .down {
+      position: absolute;
+      left: 985px;
+      top: 244px;
+      width: 2px;
+      height: 44px;
+      background: #94a3b8;
+    }
+    .down::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: -5px;
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 9px solid #94a3b8;
+    }
+    .meta {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr 1fr;
+      gap: 16px;
+      margin-top: 22px;
+    }
+    .card {
+      border: 1px solid #d7dee9;
+      background: rgba(255,255,255,.88);
+      border-radius: 8px;
+      padding: 18px 18px 16px;
+      min-height: 128px;
+    }
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 15px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+    .card p, .card li {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+    .ok {
+      color: var(--ok);
+      font-weight: 700;
+    }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      color: #334155;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="header">
+      <div>
+        <h1>Workflow QA Assistant - n8n Agent Workflow Evidence</h1>
+        <p class="subtitle">Demo workflow for AgentBrains Early Customer Feedback submission. It uses the public n8n Workflow QA Kit and synthetic test payloads only.</p>
+      </div>
+      <div class="badge">
+        <strong>Privacy boundary:</strong> no customer records, credentials, private documents, payment data, phone numbers, PHI, or production workflow exports.
+      </div>
+    </section>
+
+    <section class="canvas" aria-label="n8n workflow diagram">
+      <div class="node manual">
+        <div class="icon">1</div>
+        <h2>Manual Trigger</h2>
+        <p>Operator starts the QA harness from n8n with no external customer data.</p>
+      </div>
+      <div class="arrow a1"></div>
+
+      <div class="node seed">
+        <div class="icon">2</div>
+        <h2>Seed Synthetic QA Cases</h2>
+        <p>Creates pass/fail payloads with synthetic ticket IDs and redacted-safe examples.</p>
+      </div>
+      <div class="arrow a2"></div>
+
+      <div class="node validate">
+        <div class="icon">3</div>
+        <h2>Validate Input Contract</h2>
+        <p>Checks required fields, missing task type, retry safety, and handoff readiness.</p>
+      </div>
+      <div class="arrow a3"></div>
+
+      <div class="node report">
+        <div class="icon">4</div>
+        <h2>Build QA Report</h2>
+        <p>Produces pass/fail counts, repair recommendations, and client-readable output.</p>
+      </div>
+      <div class="down"></div>
+
+      <div class="node agent">
+        <div class="icon">AB</div>
+        <h2>AgentBrains Employee</h2>
+        <p><strong>Workflow QA Assistant</strong> responds through a verified JSON webhook endpoint.</p>
+      </div>
+    </section>
+
+    <section class="meta">
+      <div class="card">
+        <h3>AgentBrains Configuration</h3>
+        <p>Company: <code>WorkflowPatch Demo Co</code><br>
+        Knowledge Base: <code>n8n Workflow QA Kit</code><br>
+        Employee: <code>Workflow QA Assistant</code></p>
+      </div>
+      <div class="card">
+        <h3>Webhook Verification</h3>
+        <ul>
+          <li><span class="ok">HTTP 200</span> verified by POST</li>
+          <li>Response content type: <code>application/json</code></li>
+          <li>Response body contains single <code>message</code> key</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Source Workflow</h3>
+        <p><code>product-repos/n8n-workflow-qa-kit/workflows/qa-harness-manual.json</code></p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
