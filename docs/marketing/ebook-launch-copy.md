@@ -27,9 +27,11 @@ Pain:
 Offer ladder:
 
 - Free sample: manual QA harness JSON.
+- $9: quick async risk note for one redacted workflow idea, screenshot, or brief.
+- $19: micro QA audit for one redacted Make/n8n/Zapier workflow brief.
+- $29: small repair map with failure paths, duplicate-risk notes, synthetic test payloads, and handoff notes.
 - $49: Playbook + full kit bundle.
-- $75: paid proof slice for one Make/n8n/Zapier workflow problem before credentials are shared.
-- $79: async review of one exported n8n workflow with credentials removed.
+- $75+: deeper proof slice or agency overflow QA packet before credentials are shared.
 - $149: urgent 24-hour delivery QA packet for one workflow brief.
 
 ## Landing Page Headline Options
@@ -89,7 +91,7 @@ Offer: I review one exported n8n workflow or written workflow brief using no cre
 - synthetic test payloads
 - client-readable handoff checklist
 
-Fixed price: $79 for one workflow review.
+Fixed entry price: $19 for a micro QA audit. If you only want a quick risk note, I can do $9. If you want a small repair map with synthetic tests, use $29.
 
 Sample:
 https://hesong0222-dev.github.io/n8n-workflow-qa-kit/
@@ -99,7 +101,7 @@ If useful, send a credential-stripped export, screenshots, or a written brief.
 ## Email Subject Lines
 
 - Quick QA pass before your n8n workflow launch
-- Fixed $79 review for one exported n8n workflow
+- Fixed $19 micro audit for one exported n8n workflow
 - Catch duplicate webhooks before client handoff
 - n8n handoff checklist for your current automation
 - Small QA packet for your Make/n8n workflow
@@ -120,4 +122,4 @@ Use capacity, not fake urgency:
 
 ## Conversion Goal
 
-The first goal is not a low-ticket ebook sale. The first goal is a $75 proof-slice request because it clears the $50 target with one buyer and is easier to accept than a full implementation proposal.
+The first goal is many low-friction paid commitments. Default to $9, $19, and $29 offers so multiple buyers can say yes quickly; reserve $75+ proof slices for agencies or buyers already asking for deeper help.

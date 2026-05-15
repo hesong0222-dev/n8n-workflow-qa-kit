@@ -31,11 +31,14 @@ The workflows use synthetic examples only. There are no credentials, customer na
 
 ## Suggested Price
 
-Use three tiers:
+Use a low-friction ladder first. The current target is many small paid commitments, not one large sale:
 
-- `₹4,999`: Public n8n Basket listing for the importable QA harness JSON: https://n8nbasket.com/workflow/4af3e281-63fb-492b-b58e-4758f981a751
+- `$9`: Quick async risk note for one redacted workflow idea, screenshot, or brief.
+- `$19`: Micro QA audit for one redacted Make/n8n/Zapier workflow brief.
+- `$29`: Small repair map with failure paths, duplicate-risk notes, synthetic test payloads, and handoff notes.
 - `$49`: Playbook bundle, including ebook, workflow starters, checklist, and templates.
-- `$79`: Async review of one exported n8n workflow or written automation brief, delivered as written notes.
+- `₹4,999`: Public n8n Basket listing for the importable QA harness JSON: https://n8nbasket.com/workflow/4af3e281-63fb-492b-b58e-4758f981a751
+- `$75+`: Async review or agency overflow QA packet when a buyer already wants deeper workflow help.
 - `$149`: Urgent 24-hour QA packet for one workflow brief, using redacted or synthetic data only.
 
 ## Sources Checked
