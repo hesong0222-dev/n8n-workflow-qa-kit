@@ -31,14 +31,15 @@ The workflows use synthetic examples only. There are no credentials, customer na
 
 ## Suggested Price
 
-Use a low-friction ladder first. The current target is many small paid commitments, not one large sale:
+Use a very low-friction ladder first. The current target is many small paid commitments, not one large sale:
 
-- `$9`: Quick async risk note for one redacted workflow idea, screenshot, or brief.
-- `$19`: Micro QA audit for one redacted Make/n8n/Zapier workflow brief.
-- `$29`: Small repair map with failure paths, duplicate-risk notes, synthetic test payloads, and handoff notes.
+- `$3`: Quick async risk note for one redacted workflow idea, screenshot, or brief.
+- `$5`: Micro QA audit for one redacted Make/n8n/Zapier workflow brief.
+- `$9`: Small repair map with failure paths, duplicate-risk notes, synthetic test payloads, and handoff notes.
+- `₹299`: Public n8n Basket Lite listing for the manual QA harness: https://n8nbasket.com/workflow/8aa249d1-1b8f-42bc-bf04-77c77a5753c6
 - `$49`: Playbook bundle, including ebook, workflow starters, checklist, and templates.
 - `₹4,999`: Public n8n Basket listing for the importable QA harness JSON: https://n8nbasket.com/workflow/4af3e281-63fb-492b-b58e-4758f981a751
-- `$75+`: Async review or agency overflow QA packet when a buyer already wants deeper workflow help.
+- `$19+`: Async review or agency overflow QA packet when a buyer already wants deeper workflow help.
 - `$149`: Urgent 24-hour QA packet for one workflow brief, using redacted or synthetic data only.
 
 ## Sources Checked

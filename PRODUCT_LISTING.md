@@ -6,7 +6,7 @@ The n8n Client Delivery Playbook
 
 ## Short Description
 
-A 60-minute QA handoff system plus $9-$29 micro-audit options for n8n freelancers and automation agencies shipping client workflows.
+A 60-minute QA handoff system plus $3-$9 micro-audit options and a ₹299 Lite checkout for n8n freelancers and automation agencies shipping client workflows.
 
 Agency overflow page: `agency-overflow.html`
 
@@ -50,11 +50,12 @@ Use it before shipping a workflow, before handing work to a client, or before se
 
 ## Price Tiers
 
-- `$9`: Quick async risk note for one redacted workflow idea, screenshot, or brief
-- `$19`: Micro QA audit for one redacted Make/n8n/Zapier workflow brief
-- `$29`: Small repair map with failure paths, duplicate-risk notes, synthetic test payloads, and handoff notes
+- `$3`: Quick async risk note for one redacted workflow idea, screenshot, or brief
+- `$5`: Micro QA audit for one redacted Make/n8n/Zapier workflow brief
+- `$9`: Small repair map with failure paths, duplicate-risk notes, synthetic test payloads, and handoff notes
+- `₹299`: n8n Basket Lite workflow checkout: `https://n8nbasket.com/workflow/8aa249d1-1b8f-42bc-bf04-77c77a5753c6`
 - `$49`: Playbook bundle
-- `$75+`: Agency overflow QA packet or deeper async workflow review when the buyer wants a larger scope
+- `$19+`: Agency overflow QA packet or deeper async workflow review when the buyer wants a larger scope
 - `$149`: Urgent 24-hour QA packet for one workflow brief
 
 ## Delivery File

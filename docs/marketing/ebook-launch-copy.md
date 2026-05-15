@@ -27,11 +27,12 @@ Pain:
 Offer ladder:
 
 - Free sample: manual QA harness JSON.
-- $9: quick async risk note for one redacted workflow idea, screenshot, or brief.
-- $19: micro QA audit for one redacted Make/n8n/Zapier workflow brief.
-- $29: small repair map with failure paths, duplicate-risk notes, synthetic test payloads, and handoff notes.
+- $3: quick async risk note for one redacted workflow idea, screenshot, or brief.
+- $5: micro QA audit for one redacted Make/n8n/Zapier workflow brief.
+- $9: small repair map with failure paths, duplicate-risk notes, synthetic test payloads, and handoff notes.
+- ₹299: direct n8n Basket Lite checkout.
 - $49: Playbook + full kit bundle.
-- $75+: deeper proof slice or agency overflow QA packet before credentials are shared.
+- $19+: deeper proof slice or agency overflow QA packet before credentials are shared.
 - $149: urgent 24-hour delivery QA packet for one workflow brief.
 
 ## Landing Page Headline Options
@@ -91,7 +92,7 @@ Offer: I review one exported n8n workflow or written workflow brief using no cre
 - synthetic test payloads
 - client-readable handoff checklist
 
-Fixed entry price: $19 for a micro QA audit. If you only want a quick risk note, I can do $9. If you want a small repair map with synthetic tests, use $29.
+Fixed entry price: $5 for a micro QA audit. If you only want a quick risk note, I can do $3. If you want a small repair map with synthetic tests, use $9. Lite workflow checkout: https://n8nbasket.com/workflow/8aa249d1-1b8f-42bc-bf04-77c77a5753c6
 
 Sample:
 https://hesong0222-dev.github.io/n8n-workflow-qa-kit/
@@ -101,7 +102,7 @@ If useful, send a credential-stripped export, screenshots, or a written brief.
 ## Email Subject Lines
 
 - Quick QA pass before your n8n workflow launch
-- Fixed $19 micro audit for one exported n8n workflow
+- Fixed $5 micro audit for one exported n8n workflow
 - Catch duplicate webhooks before client handoff
 - n8n handoff checklist for your current automation
 - Small QA packet for your Make/n8n workflow
@@ -122,4 +123,4 @@ Use capacity, not fake urgency:
 
 ## Conversion Goal
 
-The first goal is many low-friction paid commitments. Default to $9, $19, and $29 offers so multiple buyers can say yes quickly; reserve $75+ proof slices for agencies or buyers already asking for deeper help.
+The first goal is many low-friction paid commitments. Default to $3, $5, and $9 offers so multiple buyers can say yes quickly; reserve $19+ proof slices for agencies or buyers already asking for deeper help.
